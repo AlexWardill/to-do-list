@@ -2,7 +2,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require('path');
 
 module.exports = {
-  plugins: [
+    entry: {
+        main: path.resolve(__dirname, './src/index.js'),
+      },
+      output: {
+        filename: 'main.bundle.js',
+        path: path.resolve(__dirname, 'deploy')
+      },
+    plugins: [
     new HtmlWebpackPlugin({
         hash: true,
         title: 'To Do List',
@@ -13,5 +20,29 @@ module.exports = {
         inject: 'body'
     }),
   ],
-  mode: 'development'
+  module: {
+	rules: [
+	  {
+		test: /\.css$/,
+		use: [
+		  'style-loader',
+		  'css-loader',
+		],
+	  },
+      {
+		test: /\.ttf$/,
+		use: [
+		  'url-loader',
+		],
+	  },
+	],
+  },
+  mode: 'development',
+  output: {
+    clean: true
+  },
+  devServer: {
+    static: './',
+    open: true, 
+  }
 };
