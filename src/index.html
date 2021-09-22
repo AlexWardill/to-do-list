@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="<%= htmlWebpackPlugin.options.metaDesc %>"
+    />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>To Do List</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__text">Another To Do List App</h1>
+    </header>
+
+    <main class="main">
+      <aside class="section" id="projects-section">
+        <div class="default-projects">
+          <h1 class="project-title">Home</h1>
+        </div>
+        <div class="custom-projects">
+          <h1 class="projects-header">Projects</h1>
+        </div>
+      </aside>
+
+      <div class="section" id="tasks-section">
+        <h1 class="tasks__project-name">Home</h1>
+        <form
+          class="task-input-container"
+          onsubmit="return false"
+          autocomplete="off"
+        >
+          <i class="plus"></i>
+          <input id="task__input" type="text" placeholder="New Task" />
+        </form>
+        <div class="task-display"></div>
+      </div>
+    </main>
+    <!-- <script src="main.js"></script> -->
+  </body>
+</html>
